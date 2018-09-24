@@ -21,7 +21,7 @@ Cenario: Cadastro campanha e-mail
         | obs                 | teste              |
     Quando seleciono as regras '<regra>' e '<parametro>', e formato o email
     E faço o cadastro
-    Então visualizo a campanha criada na tela de gestão de campanhas
+    Então visualizo a campanha inativa criada na tela de gestão de campanhas
 
 @cadastro_campanha_sms
 Cenario: Cadastro campanha sms
@@ -33,12 +33,12 @@ Cenario: Cadastro campanha sms
         | fim                 | 22/11/2019         |
         | obs                 | dia dos pais       |
     Quando seleciono as regras '<regra>' e '<parametro>', e formato o sms
-    E quando faço o cadastro
-    Então visualizo a campanha criada
+    E faço o cadastro
+    Então visualizo a campanha inativa criada na tela de gestão de campanhas
 
 @cadastro_campanha_email_sms
 Cenario: Cadastro campanha e-mail e sms
-      
+    E possuo os seguintes dados:  
         | nome             | Dia das criancas   |
         | check_tipo_email | E-mail             |
         | check_tipo_sms   | SMS                |
@@ -52,7 +52,7 @@ Cenario: Cadastro campanha e-mail e sms
 
 @validar_tipo_camapnha
 Cenário: Validar obrigatoriedade do tipo campanha
-
+    E possuo os seguintes dados:
         | nome             | Dia das criancas   |
         | check_tipo_email |                    |
         | check_tipo_sms   |                    |
@@ -67,7 +67,7 @@ Cenário: Validar obrigatoriedade do tipo campanha
         
 @validar_regra
 Cenário: Validar obrigatoriedade de pelo menos uma regra cadastrada na campanha
-    
+    E possuo os seguintes dados:
         | nome             | Dia das criancas   |
         | check_tipo_email | E-mail             |
         | descricao        | campanha de vendas |
@@ -80,7 +80,7 @@ Cenário: Validar obrigatoriedade de pelo menos uma regra cadastrada na campanha
 
 @validar_formatacao_email
 Cenário: Validar obrigatoriedade de formatar E-mail
-
+    E possuo os seguintes dados:
         | nome             | Dia das criancas   |
         | check_tipo_email | E-mail             |
         | descricao        | campanha de vendas |
@@ -93,7 +93,7 @@ Cenário: Validar obrigatoriedade de formatar E-mail
 
 @validar_formatacao_sms
 Cenário: Validar obrigatoriedade de formatar SMS
-
+    E possuo os seguintes dados:
         | nome           | Dia das criancas   |
         | check_tipo_sms | SMS                |
         | descricao      | campanha de vendas |
@@ -106,7 +106,7 @@ Cenário: Validar obrigatoriedade de formatar SMS
 
 @validacoes_obrigatoriedade_cadastro
 Esquema do Cenario: Validacoes em Cadastro
-
+    E possuo os seguintes dados:
         | nome             | <Nome>             |
         | check_tipo_email | <Check_Tipo_Email> |
         | check_tipo_sms   | <Check_Tipo_SMS    |

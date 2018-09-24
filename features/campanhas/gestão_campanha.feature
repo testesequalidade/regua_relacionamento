@@ -21,7 +21,7 @@ Cenario: Limpar seleção
     Quando limpo a seleção
     Então todas as campanhas deverão ficar desmarcadas
 
-@desativa_campanhas
+@desativar_campanhas
 Cenario: Desativar campanha
     E seleciono uma campanha
     Quando a desativo 
@@ -30,7 +30,7 @@ Cenario: Desativar campanha
 @ativar_campanha
 Cenario: Ativar campanha
     E seleciono uma campanha
-    Quando a ativo 
+    Quando a ativo
     Então a campanha deverá estar ativada
 
 @excluir_campanha
@@ -53,4 +53,6 @@ Cenario: Pesquisa Desativa
 Cenario: Pesquisa por nome
     Quando pesquiso campanhas pelo nome
     Então visualizo as campanhas pequisadas
+
+
 
