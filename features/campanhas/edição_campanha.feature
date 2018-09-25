@@ -11,7 +11,7 @@ Contexto: Edição de campanha
 @editar_campanha
 Cenario: Validar edição de campanha
     E selecionei uma campanha inativa e não iniciada
-    Quando realizo a edição
+    Quando realizo a edição dos campos: '<nome>', '<descrição>', '<tipo_sistema>', '<regra>', '<de>', '<ate>', '<check_tipo>'
     Então sou direcionado para a tela de listagem de campanha
 
 @editar_campanha_ativa
@@ -21,12 +21,14 @@ Cenario: Editar campanha ativa
 
 @editar_campanha_inativa_e_ja_iniciada
 Cenario: Editar campanha inativa e já iniciada
-    E desejo editar uma campanha inativa e ja iniciada 
+    E desejo editar uma campanha inativa e ja iniciada
     Então não visualizo a opção de edição
 
 @ativar_campanha_expirada
 Cenario: Ativar campanha expirada
-    Quando edito a data de uma campanha expirada
+    #Campanha expirada é quando a data de ativação é menor que a data atual.  
+    #Ex: Campanha 'xpto' a data de ativação é dia 10/05/2018 e a data atual é 25/09/2018 então essa campanha está expirada
+    Quando edito a data de uma campanha expirada 
     Então posso ativa-la
 
 Contexto:
@@ -38,7 +40,7 @@ Cenário: Validar obrigatoriedade do campo nome
     E salvo a edição
     Então devo ver a mensagem de erro "É necessário informar o nome."
 
-@validar_obrigatoriedade_edicao_edicao
+@validar_obrigatoriedade_descrição_edicao
 Cenário: Validar obrigatoriedade do campo descrição
     Quando deleto a informação da descricao da campanha
     E salvo a edição

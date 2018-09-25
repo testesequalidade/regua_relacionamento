@@ -15,6 +15,7 @@ Cenario: Cadastro campanha e-mail
     E possuo os seguintes dados:
         | nome                | Dia dos pais       |
         | check_tipo_campanha | E-mail             |
+        | tipo_sistema        | Loyalty            |
         | descricao           | campanha de vendas |
         | inicio              | 17/11/2018         |
         | fim                 | 22/11/2019         | 
@@ -27,7 +28,8 @@ Cenario: Cadastro campanha e-mail
 Cenario: Cadastro campanha sms
     E possuo os seguintes dados:
         | nome                | Dia das maes       |
-        | check_tipo_campanha | SMS                | 
+        | check_tipo_campanha | SMS                |
+        | tipo_sistema        | Vision             | 
         | descricao           | campanha de vendas |
         | inicio              | 17/11/2018         |
         | fim                 | 22/11/2019         |
@@ -42,6 +44,7 @@ Cenario: Cadastro campanha e-mail e sms
         | nome             | Dia das criancas   |
         | check_tipo_email | E-mail             |
         | check_tipo_sms   | SMS                |
+        | tipo_sistema     | Vision             |
         | descricao        | campanha de vendas |
         | inicio           | 17/11/2018         |
         | fim              | 22/11/2019         |
@@ -56,6 +59,7 @@ Cenário: Validar obrigatoriedade do tipo campanha
         | nome             | Dia das criancas   |
         | check_tipo_email |                    |
         | check_tipo_sms   |                    |
+        | tipo_sistema     | Vision             |
         | descricao        | campanha de vendas |
         | inicio           | 17/11/2018         |
         | fim              | 22/11/2019         |
@@ -63,13 +67,30 @@ Cenário: Validar obrigatoriedade do tipo campanha
 
     Quando faço o meu cadastro sem selecionar o tipo da campanha
     Então devo ver a mensagem de erro 
-        | alerta           | É necessario ter pelo menos um tipo de envio marcado. | 
+        | alerta           | É necessario ter pelo menos um tipo de envio marcado. |
+
+@validar_tipo_sistema
+Cenário: Validar obrigatoriedade do tipo sistema
+    E possuo os seguintes dados:
+        | nome             | Dia das criancas   |
+        | check_tipo_email | email              |
+        | check_tipo_sms   |                    |
+        | tipo_sistema     |                    |
+        | descricao        | campanha de vendas |
+        | inicio           | 17/11/2018         |
+        | fim              | 22/11/2019         |
+        | obs              | dia dos pais       |
+
+    Quando faço o meu cadastro sem selecionar o tipo do sistema
+    Então devo ver a mensagem de erro 
+        | alerta           | É necessario ter pelo menos um tipo de sistema marcado. |
         
 @validar_regra
 Cenário: Validar obrigatoriedade de pelo menos uma regra cadastrada na campanha
     E possuo os seguintes dados:
         | nome             | Dia das criancas   |
         | check_tipo_email | E-mail             |
+        | tipo_sistema     | Loyalty            |
         | descricao        | campanha de vendas |
         | inicio           | 17/11/2018         |
         | fim              | 22/11/2019         |
@@ -83,6 +104,7 @@ Cenário: Validar obrigatoriedade de formatar E-mail
     E possuo os seguintes dados:
         | nome             | Dia das criancas   |
         | check_tipo_email | E-mail             |
+        | tipo_sistema     | Loyalty            |
         | descricao        | campanha de vendas |
         | inicio           | 17/11/2018         |
         | fim              | 22/11/2019         |
@@ -96,6 +118,7 @@ Cenário: Validar obrigatoriedade de formatar SMS
     E possuo os seguintes dados:
         | nome           | Dia das criancas   |
         | check_tipo_sms | SMS                |
+        | tipo_sistema   | Loyalty            |
         | descricao      | campanha de vendas |
         | inicio         | 17/11/2018         |
         | fim            | 22/11/2019         |
@@ -106,10 +129,11 @@ Cenário: Validar obrigatoriedade de formatar SMS
 
 @validacoes_obrigatoriedade_cadastro
 Esquema do Cenario: Validacoes em Cadastro
-    E possuo os seguintes dados:
+    E possuo os seguintes dados: 
         | nome             | <Nome>             |
         | check_tipo_email | <Check_Tipo_Email> |
         | check_tipo_sms   | <Check_Tipo_SMS    |
+        | tipo_sistema     | <tipo_sistema>     |
         | descricao        | <Descricao>        |
         | inicio           | <Inicio>           |
         | fim              | <Fim>              |
@@ -118,9 +142,9 @@ Esquema do Cenario: Validacoes em Cadastro
     Então devo ver a mensagem de erro '<alerta>'
 
     Exemplos:
-        | Nome         | Check_Tipo_Email | Check_Tipo_SMS | Descricao                 | Inicio     | Fim        | Obs | Alerta                                       |
-        |              | email            | sms            | Apenas produto Eletronico | 17/09/2018 | 17/09/2019 |     | É necessário informar o nome.                |
-        | Dia dos pais | email            | sms            |                           | 17/09/2018 | 17/09/2019 |     | É necessário informar uma descrição.         |
-        | Dia dos pais | email            | sms            | Apenas produto Eletronico |            | 17/09/2019 |     | É ncessário informar uma data de inicio.     |
-        | Dia dos pais | email            | sms            | Apenas produto Eletronico | 17/09/2018 |            |     | É ncessário informar uma data de fim.        |
-        | Dia dos pais | email            | sms            | Apenas produto Eletronico | 17/09/2019 | 17/09/2018 |     | A data inicio deve ser menor que a data fim. |
+        | Nome         | Check_Tipo_Email | Check_Tipo_SMS | Tipo Sistema | Descricao                 | Inicio     | Fim        | Obs | Alerta                                       |
+        |              | email            | sms            | Loyalty      | Apenas produto Eletronico | 17/09/2018 | 17/09/2019 |     | É necessário informar o nome.                |
+        | Dia dos pais | email            | sms            | Loyalty      |                           | 17/09/2018 | 17/09/2019 |     | É necessário informar uma descrição.         |
+        | Dia dos pais | email            | sms            | Loyalty      | Apenas produto Eletronico |            | 17/09/2019 |     | É ncessário informar uma data de inicio.     |
+        | Dia dos pais | email            | sms            | Loyalty      | Apenas produto Eletronico | 17/09/2018 |            |     | É ncessário informar uma data de fim.        |
+        | Dia dos pais | email            | sms            | Loyalty      | Apenas produto Eletronico | 17/09/2019 | 17/09/2018 |     | A data inicio deve ser menor que a data fim. |
