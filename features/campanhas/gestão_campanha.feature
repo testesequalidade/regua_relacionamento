@@ -6,15 +6,14 @@ Funcionalidade: Gestão de campanha
         Sendo um usuário com permissão
         Posso acessar a pagina de gestão de campanhas
 
+Contexto: Ações na pagina de gestão de campanha
+    Dado que estou na pagina de gestão de campanha
+
 @visualizar_campanha
 Cenario: Visualizar as campanhas
     Dado que estou logado no ADM
     Quando acesso a pagina de gestão de campanhas
     Então visualizo todas as campanhas cadastradas
-
-
-Contexto: Ações na pagina de gestão de campanha
-    Dado que estou na pagina de gestão de campanha
 
 @limpar_selecao
 Cenario: Limpar seleção

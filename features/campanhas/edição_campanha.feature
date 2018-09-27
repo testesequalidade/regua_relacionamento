@@ -31,8 +31,8 @@ Cenario: Ativar campanha expirada
     Quando edito a data de uma campanha expirada 
     Então posso ativa-la
 
-Contexto:
-    Dado que estou na pagina de edição de campanhas
+#Contexto: Obrigatoriedade campanha
+   # Dado que estou na pagina de edição de campanhas
 
 @validar_obrigatoriedade_nome_edicao
 Cenário: Validar obrigatoriedade do campo nome

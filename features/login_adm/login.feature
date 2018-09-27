@@ -10,9 +10,12 @@ Contexto: Acesso login
 
 @login
 Cenário: Login com sucesso
-  
-    Quando faço login com "<e-mail>", "<senha>" e seleciono a organização "<organização>"
-    Então sou autenticado com sucesso
+    Quando faço login com:
+    |login       | testesequalidade@csu.com.br |
+    |senha       | aaaa2*                      |
+    |organizacao | TRIBANCO                    |
+    Então visualizo o nome "Qualidade CSU (Tribanco PP)" no cabeçalho da pagina
+
 
 @usuario_invalido
 Esquema do Cenário: Login sem sucesso
