@@ -8,21 +8,23 @@ Funcionalidade: Cadastro de usuario
 Contexto: Cadastro
     Dado que eu acessei a página de cadastro
 
-@cadastro_sucesso @login #Fazer um codigo before no arquivo hooks.rb de login
+@cadastro_sucesso @auth
     Cenário: Cadastro com sucesso
     
     E possuo os seguintes dados:
 
-    |nome             | Flavio machado              |
-    |cpf              | 098.796.986-22              |
-    |e-mail           | testesequalidade@csu.com.br |
-    |confirmar e-mail | testesequalidade@csu.com.br |
-    |programa         | B2C OPTE+                   |
-    |perfil           | <confirmarnome>             | 
+    |nome             | aFlavio machado                              |
+    |cpf              | 098.796.986-22                               |
+    |email            | flavio.machado@csu.com.br                    |
+    |confirmar_email  | flavio.machado@csu.com.br                    |
+    |programa         | PROGRAMA DE RECOMPENSAS EMPRESARIAL TRIBANCO |
+    |perfil           | ADMINISTRADOR                                | 
     #Aguardando o nome correto do perfil
     Quando faço meu cadastro
-    Entao fui cadastrado com sucesso
-
+    Entao devo ver a mensagem 
+"""
+O usuário foi cadastrado com sucesso e sua senha foi enviada para o e-mail cadastrado!
+"""
 @validacao_cadastro
     Esquema do Cenario: Validação Cadastro
 
@@ -30,7 +32,7 @@ Contexto: Cadastro
         | nome             | <nome>       |
         | cpf              | <cpf>        |
         | email            | <email>      |
-        | confirmar e-mail | <conf_email> |
+        | confirmar_e mail | <conf_email> |
         | programa         | <programa>   |
         | perfil           | <perfil>     | 
 
