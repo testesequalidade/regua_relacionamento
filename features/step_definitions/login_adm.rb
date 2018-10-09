@@ -10,5 +10,4 @@ end
 Então("visualizo o nome {string} no cabeçalho da pagina") do |nome|
     cabecalho = find('#msgboasvidas').text
     expect(cabecalho).to have_content nome
-end   
-                                                                                                     
+end                                                                                                 

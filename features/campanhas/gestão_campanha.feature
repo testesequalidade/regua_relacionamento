@@ -2,9 +2,9 @@
 
 Funcionalidade: Gestão de campanha
 
-        Para que eu possa gerir minhas campanhas
-        Sendo um usuário com permissão
-        Posso acessar a pagina de gestão de campanhas
+    Para que eu possa gerir minhas campanhas
+    Sendo um usuário com permissão
+    Posso acessar a pagina de gestão de campanhas
 
 Contexto: Ações na pagina de gestão de campanha
     Dado que estou na pagina de gestão de campanha
@@ -52,6 +52,18 @@ Cenario: Pesquisa Desativa
 Cenario: Pesquisa por nome
     Quando pesquiso campanhas pelo nome
     Então visualizo as campanhas pequisadas
+
+@ativa_data
+Cenario: Campanha ativa pela data de vigencia
+    E a campanha estiver inativa
+    Quando a data de inicio da campanha for igual a data atual
+    Então a campanha deverá ficar ativa
+
+@inativa_data
+Cenario: Campanha ativa pela data de vigencia
+    E a campanha estiver ativa
+    Quando a data de fim da campanha for igual a data atual
+    Então a campanha deverá ficar inativa
 
 
 
